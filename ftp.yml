@@ -1,5 +1,5 @@
-- name: < Fetch file that requires authentication.
-        username/password only available since 2.8, in older versions you need to use url_username/url_password
+- name: FTP Authentication to Site
+        
   get_url:
     url: '{{ ftpsite }}'
     dest: '{{ destination }}'
@@ -7,3 +7,7 @@
     password: '{{ mysecret }}'
 
 
+- name: Grabbing File from Destination
+  win_copy: 
+    src: '{{ destination }}'
+    dest: '{{ cohesity}}'
