@@ -1,0 +1,14 @@
+---
+- name: Install TreeSize  
+  hosts: all 
+ 
+  tasks:
+    - name: Download The TreeSize Installer
+      win_get_url:
+        url: 'https://customers.jam-software.de/downloadTrialProcess.php'
+        dest: 'D:/DropBox/TreeSizeFreeSetup.exe'
+
+    - name: Install MSI
+      win_package: 
+        path: 'D:/DropBox/TreeSizeFreeSetup.exe'
+        state: present
