@@ -1,13 +1,15 @@
+---
+
 - name: FTP Authentication to Site
         
-  get_url:
-    url: '{{ ftpsite }}'
-    dest: '{{ destination }}'
-    username: '{{ username }}'
-    password: '{{ mysecret }}'
+  ansible.windows.win_get_url:
+    url: "{{ ftpsite }}"
+    dest: "{{ destination }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
 
 
 - name: Grabbing File from Destination
   win_copy: 
-    src: '{{ destination }}'
-    dest: '{{ cohesity}}'
+    src: "{{ destination }}"
+    dest: "{{ cohesity }}"
